@@ -1,0 +1,6 @@
+Desenvolvimento movimento a componentização, basicamente reutiliza as coisas
+
+Com react você não fala explicitamente o que você precisa, você trabalha muito com estado de alguma coisas
+Basicamente é qualquer informação que você irá armazenar dentro de um componente.
+
+No react também é necessário a utilização de rotas, essas rotas são os que irão guiar a navegação das páginas web

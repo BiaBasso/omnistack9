@@ -1,0 +1,64 @@
+-> Framework: é um conjunto de coisas já prontas para utilizar e facilitar o desenvolvimento, sem precisar fazer tudo do zero.
+
+-> express é um micro framework dentro do nodejs
+uma das funcionalidades dele é auxiliar a construção das rotas (navagação no site).
+
+-> Para testar todas essas rotas, foi usado o insomnia
+
+Exemplo de como fazer uma rota:
+
+app.get('/', (req, res) => {
+
+    return res.json({ message: 'Hello World' }); // O recomendado para envio de resposta é no formato JSON
+});
+
+-> Nesse exemplo acima é usado uma arrow function (uma função de forma reduzida)
+seria a mesma coisa de fazer:
+
+app.get('/', function (req, res) {
+    return res.json({ message: 'Hello World' });
+});
+
+-> Nas rotas sempre terei uma requisição (req) e uma resposta (res)
+- A req é toda a requisição que o usuário faz dentro do site
+- A res é toda a resposta que o servidor irá devolver para o usuário com base na requisição dele.
+
+-> Usando os métodos HTTP para um servidor REST API
+- GET quando quero buscar alguma informação do meu backend
+- POST quando quero criar uma nova informação no meu backend
+- PUT quando quero editar alguma informação
+- DELETE quando quero deletar uma informação
+Obs: Para testar as rotas criadas no servidor, será usado o aplicativo insomnia.rest (é igual ao postman)
+
+-> req.query serve para acessar os query params (os parametros que passo na URL para pegar algo) - filtro/pesquisa
+Ex:
+localhost:3333/users?idade=20 (idade=20 é um query params)
+
+-> req.params serve para acessar os route params (os parametros que ficam depois da rota, geralmente o id) - edit/delete
+Ex:
+localhost:3333/users/1
+
+-> req.body serve para acessar corpo da requisição (é aqui que eu recebo o JSON com todos os dados) - criação/edição
+
+-> req.headers serve para definir o contexto da aplicação (geralmente para enviar contexto de autenticação, idioma do usuário)
+
+Obs: é usado o comando npm install nodemon -D 
+- Para o servidor sempre pegar qualquer alteração feita no código, sem precisar reiniciá-lo a cada alteração
+- O parametro '-D' é para isso acontecer apenas enquanto se desenvolve a aplicação
+
+Padrão MVC de organização de pastas.
+
+-> Models: representam uma tabela no banco de dados/representa uma entidade dentro da nossa aplicação.
+- Geralmente letra maiuscula no começo e no singular (ele é a entidade de uma rota sua)
+
+-> Controller: são as regras de negócio da aplicação, basicamente o controller irá receber uma requisição da rota,
+irá tratar essa requisição de alguma forma (executar as regras de negócios) e devolver uma resposta.
+- Na controller eu tenho os métodos: index, show, store, update, destroy
+    - Index: método que retorna uma listagem daquilo que a Controller se referencia.
+    - Show: método que retorna uma listagem de uma única coisa que a Controller se referencia.
+    - Store: método que auxilia na criação de algo que a Controller se referencia
+    - Update: método que auxilia na edição de algo que a Controller se referencia
+    - Destroy: método que auxilia na deleção de algo  que a Controller se referencia
+
+Obs: A ideia de fazer o Backend separado do Frontend é a vantagem de usar um mesmo backend para aplicação web e mobile
+
